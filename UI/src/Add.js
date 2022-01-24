@@ -10,7 +10,7 @@ const Add=()=>{
                 const res= await axios("/",{
                 user,
                 });
-                if(res.dat)
+                if(res.data)
                 {
                     countAdd++;
                 }
@@ -33,6 +33,7 @@ const Add=()=>{
                     <div id="emailHelp" className="form-text"></div>
                     </div>
                     <button type="submit" className="btn btn-danger ">Add</button>
+                    <p>`Data base added ${countAdd} times`</p>
         </form>
     );
 }

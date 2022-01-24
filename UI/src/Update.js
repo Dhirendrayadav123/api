@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const Update =()=>{
+  let countUpdate=0;
     const [id,setId]=useState('');
     const [name,setName]=useState('');
     const handleUpdate = async () => {
@@ -9,7 +10,10 @@ const Update =()=>{
         try {
           await axios.put(`/posts/${id}`, {
             username: name,
-          });          
+          }); 
+          if(resizeBy.data){
+            countUpdate++;
+          }         
         } catch (err) {}
       };
 
@@ -30,6 +34,7 @@ const Update =()=>{
         </div>
         <button type="submit" className="btn btn-danger ">Update</button>
         </div>
+        <p>`Data base update ${countUpdate} times` </p>
         </form>
     );
 }
